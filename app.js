@@ -109,6 +109,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Active",
+  });
+});
+
 app.use("/auth", authRoutes);
 app.use(articlesRoute);
 app.use(profileRoutes);

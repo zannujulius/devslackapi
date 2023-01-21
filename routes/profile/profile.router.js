@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.get("/profile", getProfile);
+router.get("/profile", verifyToken, getProfile);
 router.patch("/profile", verifyToken, editProfile);
 
 router.patch(
